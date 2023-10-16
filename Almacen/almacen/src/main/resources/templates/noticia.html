@@ -1,0 +1,20 @@
+<link rel="stylesheet" th:href="/css/estilos.css">
+<div th:fragment="noticiaCartas">
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col" th:each="productos : ${producto}">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${productos.nombre}"></h5>
+                            <p class="card-text" th:text="${productos.marca}"></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

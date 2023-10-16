@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="fragments/head :: head"> </head>
+
+<body>
+<div th:replace = "fragments/header :: navbar"></div>
+<div class = "embed-responsive embed-responsive-16by9"  th:action="@{/noticia/__${noticia.idNoticia}__}">
+    <iframe class = "embed-responsive-item" th:src="${noticia.url}"
+            width="100%" height="100%"></iframe>
+</div>
+
+</body>
+</html>
