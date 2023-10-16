@@ -56,8 +56,17 @@ public class ProductoControlador {
     @PostMapping("/crear")
     public String procesarFormulario(@ModelAttribute("producto") Producto producto, ModelMap modelo) {
         try {
+            String tipo = producto.getTipo();
+            String nombre = producto.getNombre();
+            String marca = producto.getMarca();
+            double precio = producto.getPrecio();
             System.out.println("Tipo: " + producto.getTipo());
-            productoServicio.guardarProducto(producto.getTipo(), producto.getNombre(), producto.getMarca(), producto.getPrecio());
+            if ("mercaderia".equals(tipo)) {
+                precio = precio * 1.3;
+            } else if ("fiambre".equals(tipo)) {
+                precio = precio * 1.5;
+            }
+            productoServicio.guardarProducto(tipo, nombre, marca, precio);
             modelo.put("exito", "El producto se cargó correctamente!");
         } catch (Excepcion ex) {
             modelo.put("error", ex.getMessage());
@@ -73,8 +82,9 @@ public class ProductoControlador {
     }
 
     @PostMapping("/modificar/{id}")
-    public String modificar(@PathVariable Long id, String tipo, String nombre, String marca, int precio, ModelMap modelo) {
+    public String modificar(@PathVariable Long id, String tipo, String nombre, String marca, double precio, ModelMap modelo) {
         try {
+
             productoServicio.modificarProducto(id, tipo, nombre, marca, precio);
 
             return "redirect:../";
