@@ -1,27 +1,34 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div th:fragment = "lista">
 <!DOCTYPE html>
+<head th:replace = "fragments/head :: head">
+
+</head>
+
 
 <div class="container auto " >
 
-    <table class="table table-dark table table-hover listaProductos">
-        <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Acciones</th>
-        </tr>
-        </thead>
-        <tbody th:each="productos : ${producto}">
-        <tr>
-            <th scope="row" th:text="${productos.id}"></th>
-            <td th:text="${productos.nombre}"></td>
-            <td th:text="${productos.marca}"></td>
-            <td th:text="${productos.precio}"></td>
 
-            <td>
+            <table class="table table-dark table-hover align-middle ">
+            <thead class = "align-items-center">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Fecha de Modificacion</th>
+                <th scope="col">Acciones</th>
+            </tr>
+            </thead>
+            <tbody th:each="productos : ${producto}">
+            <tr>
+                <th scope="row" th:text="${productos.id}"></th>
+                <td th:text="${productos.nombre}"></td>
+                <td th:text="${productos.marca}"></td>
+                <td th:text="${productos.precio}"></td>
+                <td th:text="${productos.fechaModificacion}"></td>
+
+                <td>
                 <a th:href= "@{/modificar/__${productos.id}__}"><i class="fas fa-feather-alt">  </i> Modificar </a>
             </td>
         </tr>

@@ -3,7 +3,7 @@
     background-size: cover;
     height: 100vh;
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 * {
     margin: 0;
@@ -57,12 +57,17 @@
   max-width: 50%;
   margin-right: 10px;
 }
-.listaProductos{
-width: 50%;
-    margin: auto;
+
+.centered {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo {
+font-weight: bold;
+text
 }
 
 

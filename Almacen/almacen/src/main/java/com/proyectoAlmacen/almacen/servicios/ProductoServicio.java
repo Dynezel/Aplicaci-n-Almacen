@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +18,13 @@ public class ProductoServicio {
     private ProductoRepositorio productoRepositorio;
 
 
+
     public List<Producto> listarProductos(){
         return productoRepositorio.findAll();
+    }
+
+    public List<Producto> buscarPorFechaModificacion(Date fechaModificacion) {
+        return productoRepositorio.findByFechaModificacion(fechaModificacion);
     }
 
 
@@ -45,6 +51,7 @@ public class ProductoServicio {
     }
 
 
+    @Transactional
     public void modificarProducto(Long id, String tipo, String nombre, String marca, double precio) throws Excepcion {
         Optional<Producto> respuesta = productoRepositorio.findById(id);
         if (respuesta.isPresent()) {

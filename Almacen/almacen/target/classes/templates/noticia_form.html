@@ -9,7 +9,7 @@
     </div>
     <div class ="headerA">
 
-    <div class="container-fluid m-5">
+    <div class="container-fluid m-5" >
 
         <form class="formulario" th:action="@{/crear}" method="POST">
             <div class="form-group my-3">
@@ -17,6 +17,7 @@
                 <select th:field="${producto.tipo}" class="form-control">
                     <option value="mercaderia">Mercadería</option>
                     <option value="fiambre">Fiambre</option>
+                    <option value="precioPorKilo">Precio Por Kilo</option>
                 </select>
             </div>
             <div class="form-group my-3">
@@ -26,6 +27,14 @@
             <div class="form-group my-3">
                 <label class="mb-2">Marca</label>
                 <input type="text" class="form-control" name="marca" placeholder="Marca">
+            </div>
+            <div class="form-group my-3">
+                <label class="mb-2">Cantidad</label>
+                <input th:field="${producto.cantidad}" type="text" class="form-control" placeholder="Cantidad de Productos" />
+            </div>
+            <div class="form-group my-3">
+                <label class="mb-2">Peso</label>
+                <input type="number" class="form-control" name="peso" placeholder="Peso">
             </div>
             <div class="form-group my-3">
                 <label class="mb-2">Precio</label>

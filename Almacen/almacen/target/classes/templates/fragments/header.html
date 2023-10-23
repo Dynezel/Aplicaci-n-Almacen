@@ -2,11 +2,22 @@
      xmlns:th="http://www.thymeleaf.org"
      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
         <div class="col-md-2 mb-2 mb-md-0 custom-left-align text-center">
             <a href="/" class="d-inline-block">
-                <p> A </p>
+                <p class = "titulo"> Almacen </p>
             </a>
         </div>
+
+        <form th:action="@{/buscarNombre}" method="get">
+            <input type="text" name="nombre" placeholder="Buscar por nombre">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <form th:action="@{/buscarFecha}" method="get">
+            <input type="date" name="fechaModificacion" placeholder="Buscar por Fecha">
+            <button type="submit">Buscar</button>
+        </form>
 
         <div  class="d-flex flex-row-reverse md-2" >
             <div class="p-2 dropdown custom-right-align">
@@ -15,7 +26,7 @@
 
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Noticias
+                        Productos
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/lista/Noticias}">Lista de Productos</a></li>

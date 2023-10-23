@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head :: head"></head>
+
+<nav th:replace = "fragments/header :: navbar">
+
+</nav>
+<body>
+
+
+<div class="container auto">
+    <h2>Resultado de la Búsqueda</h2>
+
+    <table class="table table-dark table-hover align-middle">
+        <thead class="align-items-center">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Fecha de Modificacion</th>
+            <th scope="col">Acciones</th>
+
+        </tr>
+        </thead>
+        <tbody th:each="producto : ${productos}">
+        <tr>
+            <th scope="row" th:text="${producto.id}"></th>
+            <td th:text="${producto.nombre}"></td>
+            <td th:text="${producto.marca}"></td>
+            <td th:text="${producto.precio}"></td>
+            <td th:text="${producto.fechaModificacion}"></td>
+
+            <td>
+                <a th:href="@{'/modificar/' + ${producto.id}}">
+                    <i class="fas fa-feather-alt"></i> Modificar
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
